@@ -11,6 +11,7 @@ class Mangler:
         return f"Mangler('{self.proj_name}')"
 
     def new_branch_name(self, branch_type):
+        # TODO: Add loop so method restarts if branch already exists
         if branch_type in self.accepted_branch_types:
             if branch_type == 'feature':
                 new_branch = f'feature-{random.randint(1, 1000)}'
@@ -24,5 +25,11 @@ class Mangler:
                     return False
                 else:
                     self.working_branches.append(new_branch)
+        else:
+            return False
+
+    def remove_branch_by_name(self, branch_name):
+        if branch_name in self.working_branches:
+            self.working_branches.remove(branch_name)
         else:
             return False
