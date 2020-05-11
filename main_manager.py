@@ -46,3 +46,15 @@ class Mangler:
 
         for i in self.bug_branches:
             self.bug_branches.remove(i)
+
+    def delete_branch_by_name(self, branch_name):
+        if 'feature' in branch_name:
+            if branch_name in self.feature_branches:
+                self.feature_branches.remove(branch_name)
+            else:
+                pass
+        elif 'bug' in branch_name:
+            if branch_name in self.bug_branches:
+                self.bug_branches.remove(branch_name)
+            else:
+                pass
