@@ -33,3 +33,16 @@ class Mangler:
                         return new_branch
             else:
                 return False
+
+    def get_features(self):
+        return self.feature_branches
+
+    def get_bugs(self):
+        return self.bug_branches
+
+    def purge_project(self):
+        for f in self.feature_branches:
+            self.feature_branches.remove(f)
+
+        for i in self.bug_branches:
+            self.bug_branches.remove(i)
